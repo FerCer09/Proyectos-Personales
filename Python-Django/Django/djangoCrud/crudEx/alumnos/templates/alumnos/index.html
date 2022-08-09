@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestras Materias</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Lista de las Materias</h1><hr>
+    <a href="{% url 'materias:add' %}" style="float:right;">Agregar nueva materia</a>
+    <div style="clear:both;"></div><br>
+    <table style="width: 100%;">
+        <thead>
+            <td>Nombre de la materia</td>
+            <td>Horario</td>
+            <td colspan="4">Actions</td>
+        </thead>
+        <tbody>
+            {% for materia in materias %}
+            <tr>
+                <td>{{materia.nombre}}</td>
+                <td>{{materia.horario}}</td>
+                
+                <td><a href="{% url 'materias:edit' materia.id %}">edit</a></td>
+                <td><a href="{% url 'materias:delete' materia.id %}">delete</a></td>
+                <td><a href="{% url 'materias:listarAlumnos' materia.id %}">Agregar Alumno</a></td>
+                <td><a href="{% url 'materias:materiaAlumnos' materia.id %}">Alumnos Inscritos</a></td>
+               <!--   -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestras Materias</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Lista de los Alumnos</h1><hr>
+    <div style="clear:both;"></div><br>
+    <table style="width: 100%;">
+        <thead>
+            <td>Matricula</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td colspan="2">Actions</td>
+        </thead>
+        <tbody>
+            {% for alumno in alumnos %}
+            <tr>
+                <td>{{alumno.id}}</td>
+                <td>{{alumno.nombre}}</td>
+                <td>{{alumno.apellido}}</td>
+
+                <td><a href="{% url 'materias:enlazarAlumnos' materia.id alumno.id%}">Inscribir Alumno</a></td>
+               <!--   -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

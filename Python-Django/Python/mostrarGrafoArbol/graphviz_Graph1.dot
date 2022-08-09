@@ -1,0 +1,24 @@
+digraph G {
+	inicio -> a
+	inicio -> b
+	inicio -> c
+	inicio -> d
+	a -> e
+	a -> f
+	e -> m
+	b -> g
+	b -> h
+	h -> n
+	n -> o
+	o -> salida
+	n -> p
+	c -> i
+	c -> j
+	d -> k
+	d -> l
+	"[inicio]" -> "[b]"
+	"[b]" -> "[h]"
+	"[h]" -> "[n]"
+	"[n]" -> "[o]"
+	"[o]" -> "[salida]"
+}
